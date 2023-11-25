@@ -8,7 +8,7 @@ ENV \
   LC_ALL=C.UTF-8 \
   LANG=C.UTF-9 \
   PATH="${HOME}/venv/bin:${PATH}" \
-  VIRTUAL_ENV="${HOME/venv}" \
+  VIRTUAL_ENV="${HOME}/venv" \
   BUILD_POETRY_LOCK="${HOME}/poetry.lock.build"
 
 RUN apt-get -qq update \
@@ -20,7 +20,7 @@ RUN apt-get -qq update \
 RUN mkdir -p "${MLFLOW_ARTIFACT_STORE}" /app
 
 COPY ./docker/run-server.sh /
-RUN chmod *x /run-server.sh
+RUN chmod +x /run-server.sh
 
 RUN HOME=/temp pip install --no-cache-dir poetry==1.5.1
 
